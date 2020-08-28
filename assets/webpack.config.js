@@ -21,7 +21,7 @@ module.exports = (env, options) => {
             'app': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
         },
         output: {
-            filename: 'app.js',
+            filename: '[name].js',
             path: path.resolve(__dirname, '../priv/static/js'),
             publicPath: '/js/'
         },
@@ -51,11 +51,14 @@ module.exports = (env, options) => {
             ]
         },
         plugins: [
-            new MiniCssExtractPlugin({filename: '../css/app.css'}),
+            new MiniCssExtractPlugin({
+                filename: '../css/app.css'
+            }),
             new CopyWebpackPlugin({
                 patterns: [
-                    { from: path.resolve('./modules/web/static/'), to: './assets' },
-                    { from: path.resolve('./modules/web/static/favicon.ico'), to: './' },
+                    {
+                        from: 'static/', to: '../'
+                    }
                 ]
             }),
             new VueLoaderPlugin()
