@@ -17,8 +17,6 @@ defmodule LearningWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/hello", HelloController, :index
-    resources "/users", UserController, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.
