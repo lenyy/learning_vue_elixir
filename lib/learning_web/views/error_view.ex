@@ -13,6 +13,6 @@ defmodule LearningWeb.ErrorView do
 
 
   def render("404.html", _assigns) do
-    render "404_page.html"
+    render("404_page.html", _assigns)
   end
 end
