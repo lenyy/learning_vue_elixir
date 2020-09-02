@@ -32,5 +32,6 @@ defmodule Learning.Repo.Migrations.InitialTables do
 
         create unique_index(:users_recipes, [:user_id, :recipe_id])
         create unique_index(:recipe_ingredients, [:recipe_id, :ingredient_id])
+        create unique_index(:user, [:username])
     end
 end
